@@ -7,9 +7,9 @@ RegisterNetEvent('ss-garage:client:openGarage', function(data, garage)
             props = v.vehicle,
             stored = v.stored,
             impounded = v.pund,
-            fuel = Round(json.decode(v.vehicle).fuelLevel, 1),
-            engine = Round(json.decode(v.vehicle).engineHealth, 1) / 10,
-            body = Round(json.decode(v.vehicle).bodyHealth, 1) / 10,
+            fuel = Round(json.decode(v.vehicle).fuelLevel, 1) or 100,
+            engine = Round(json.decode(v.vehicle).engineHealth, 1) / 10 or 1000,
+            body = Round(json.decode(v.vehicle).bodyHealth, 1) / 10 or 1000,
         }
         TriggerServerEvent('ss-garage:server:checkVehicleState', v.vehicle)
     end
